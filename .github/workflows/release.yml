@@ -1,3 +1,7 @@
+# [INPUT]: 依赖版本 tag、签名密钥与跨平台 runner；macOS 固定为 macos-15 ARM64。
+# [OUTPUT]: 构建并发布安装包与更新元数据；macOS 保留 universal 双架构产物。
+# [POS]: workflows 的 tag 发布入口；普通分支提交不触发发布。
+# [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
 name: Release
 
 on:
@@ -22,7 +26,7 @@ jobs:
           - os: ubuntu-22.04
           - os: ubuntu-22.04-arm
             arch: arm64
-          - os: macos-14
+          - os: macos-15
 
     steps:
       - name: Checkout
